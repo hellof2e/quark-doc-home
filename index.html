@@ -8,23 +8,35 @@
       href="https://m.hellobike.com/resource/helloyun/12395/0USLE_quark.png?x-oss-process=image/quality,q_80"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Quark</title>
+    <title>Quark doc home</title>
     <script type="module" src="./src/index.tsx"></script>
     <style>
+      html, body {
+        min-height: 100vh;
+        flex-direction: column;
+        display: flex;
+      }
+      img, video {
+        max-width: 100%;
+        height: auto;
+        border: 0 none;
+        vertical-align: bottom;
+      }
+      a {
+        transition: all .25s;
+      }
+      html, body, a, button, input {
+        outline: 0 none;
+        border: 0;
+        text-decoration: none;
+      }
       body {
         margin: 0;
-        display: grid;
-        justify-content: center;
-      }
-      p {
-        text-align: center;
+        padding: 0;
       }
     </style>
   </head>
   <body>
-    <!-- This is your component (custom element). -->
-    <my-component text="为跨技术栈而生！"></my-component>
-
-    <p>Edit <code>src/index.tsx</code> and save to test HMR</p>
+    <quark-doc-home></quark-doc-home>
   </body>
 </html>
