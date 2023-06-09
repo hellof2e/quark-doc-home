@@ -10,7 +10,7 @@ https://www.npmjs.com/package/quark-doc-header
 ## 如何使用
 
 ```js
-npm install quark-doc-header
+npm install quark-doc-home
 ```
 
 
@@ -20,8 +20,8 @@ npm install quark-doc-header
 
 ```js
 // 引入
-import 'quark-doc-header/lib/index'
+import 'quark-doc-home'
 
 // 使用
-<quark-doc-header />
+<quark-doc-home />
 ```

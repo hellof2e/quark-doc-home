@@ -1,11 +1,10 @@
 {
-  "name": "my-component",
+  "name": "quark-doc-home",
   "version": "0.0.1",
-  "keywords": [
-    "frontend",
-    "quark",
-    "web components"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellof2e/quark-doc-home.git"
+  },
   "scripts": {
     "dev": "npm run start",
     "start": "vite",
@@ -23,6 +22,14 @@
       "types": "./lib/types/index.d.ts"
     }
   },
+  "keywords": [
+    "quark",
+    "web components",
+    "quarkc",
+    "quarkd",
+    "quark core",
+    "frontend"
+  ],
   "dependencies": {
     "quarkc": "^1.0.4"
   },
