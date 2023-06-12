@@ -6,6 +6,7 @@ import arrow2 from "./images/arrow2.png"
 import arrowLight from "./images/arrow-light.png"
 import iDownLight from "./images/i-down-light.png"
 import iDown from "./images/i-down.png"
+import "quark-doc-header"
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -90,6 +91,7 @@ export default class QuarkDocHome extends QuarkElement {
   render() {
     return (
       <Fragment>
+        <quark-doc-header></quark-doc-header>
         <main class="home-main">
           <section class="home-section">
               <div class="home-text">
