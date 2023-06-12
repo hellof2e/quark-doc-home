@@ -47,46 +47,20 @@ export default class QuarkDocHome extends QuarkElement {
       } else {
         this.activeFwIndex ++;
       }
-    }, 3000);
+    }, 2500);
 
-    console.log(this.shadowRoot.querySelector("#we-believe"), this.shadowRoot.querySelector("#scroll-down"), 22);
-
-    const scrollDown = this.shadowRoot.querySelector("#scroll-down")
-
+    const scrollDown: any = this.shadowRoot.querySelector("#scroll-down")
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
-        console.log(entries, 989);
-
         // 进入视窗
         if (entries[0].isIntersecting) {
-          console.log(1);
-
           scrollDown.style.opacity = 0;
         } else {
-          console.log(2);
           scrollDown.style.opacity = 1;
         }
       }
     )
     intersectionObserver.observe(this.shadowRoot.querySelector("#we-believe"));
-
-
-    // this.activeFwIndex = new Proxy({}, {
-    //   get: function(target, name){
-    //     console.log(target, name, 111);
-    //     this.shadowRoot.querySelector(".tech-name").style.animation =
-    //     "3s infinite text-alter";
-
-    //     return target[name]
-    //   },
-    //   set: function(target, prop, value, receiver) {
-    //     console.log(target, prop, value, receiver, 2222);
-    //     // target[prop] = value;
-    //     // console.log('property set: ' + prop + ' = ' + value);
-    //     return true;
-    //   }
-    // })
-
   }
 
   render() {

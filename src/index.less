@@ -1,8 +1,30 @@
+@import url(./theme.css);
+
+html,
+body,
+a,
+button,
+input {
+  outline: 0 none;
+  border: 0;
+  text-decoration: none;
+}
+
 img, video {
   max-width: 100%;
   height: auto;
   border: 0 none;
   vertical-align: bottom;
+}
+
+a {
+  color: #4c4c52;
+  transition: all .25s;
+}
+
+a:hover {
+  color: var(--brand-color);
+  transition: all .25s;
 }
 
 .home-main{
@@ -53,16 +75,10 @@ img, video {
   text-align: center;
 }
 
-// .home-subtitle{
-//   padding-top: 12px;
-//   max-width: 576px;
-//   line-height: 32px;
-//   font-size: 20px;
-//   margin: 0 auto;
-//   font-weight: 500;
-//   white-space: pre-wrap;
-//   font-size: 20px;
-// }
+.why-quark {
+  background-color: var(--main-bg);
+  color: #000;
+}
 
 .home-subtitle2{
   padding-top: 12px;
@@ -78,6 +94,7 @@ img, video {
 
 .tech-name {
   width: 136px;
+  animation: 2.5s infinite text-alter;
 }
 
 .text-grad {
