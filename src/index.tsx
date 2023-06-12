@@ -22,6 +22,7 @@ export default class QuarkDocHome extends QuarkElement {
 
   constructor() {
     super()
+    this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
     this.#framework = ["Vue2.x", "Vue3.x", "React", "Angular", "Svelte", "Vanilla"]
   }
