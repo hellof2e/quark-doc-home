@@ -1,9 +1,10 @@
-# Quark 官网 & 文档公共头部组件
+# Quark design 文档公共首页
 
 https://www.npmjs.com/package/quark-doc-header
 
-![1685501041275](https://github.com/hellof2e/quark-doc-header/assets/14307551/1c48d6ec-913d-485a-971c-aa071327e151)
-![2](https://github.com/hellof2e/quark-doc-header/assets/14307551/c1da40c5-53a0-4620-90f7-83def24b7167)
+![1686574382596](https://github.com/hellof2e/quark-doc-home/assets/14307551/c93b34d1-1244-409b-bdd4-fdcefcbd7235)
+![1686574449396](https://github.com/hellof2e/quark-doc-home/assets/14307551/e9ee42f1-8bb0-425a-87dd-301c84348165)
+
 
 该组件同时被被使用在:
 
