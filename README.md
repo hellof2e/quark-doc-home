@@ -14,7 +14,7 @@ https://www.npmjs.com/package/quark-doc-header
 
 ## 如何使用
 
-```js
+```bash
 npm install quark-doc-home
 ```
 
