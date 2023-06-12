@@ -222,7 +222,7 @@ export default class QuarkDocHome extends QuarkElement {
               </div>
             </section>
 
-            {/* <section class="advantage" id="advantage">
+            <section class="advantage" id="advantage">
               <div class="wrap">
                 <h2>
                   { this.#ecosystemLangs.advantage }
@@ -268,20 +268,9 @@ export default class QuarkDocHome extends QuarkElement {
                       了解更多信息。
                     </p>
                   </div>
-                  <div class="how">
-                    <div class="bash-code">
-                      <pre class="language-bash">
-        npx create-quark-app create project-name
-        cd project-name
-
-        npm install
-        npm start
-                      </pre>
-                    </div>
-                  </div>
                 </div>
               </div>
-            </section> */}
+            </section>
           </main>
 
         <div class="footer-container">
