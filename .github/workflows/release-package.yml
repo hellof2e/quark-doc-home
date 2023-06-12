@@ -1,12 +1,8 @@
 name: Release
 
 on:
-  pull_request:
-    types:
-      - opened
-    paths:
-      - '.github/workflows/**'
-      - 'package*.json'
+  push:
+    branches: [ main ]
 
 jobs:
   build:
