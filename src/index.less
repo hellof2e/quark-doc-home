@@ -1,5 +1,3 @@
-@import url(./theme.css);
-
 html,
 body,
 a,
@@ -27,6 +25,11 @@ a:hover {
   transition: all .25s;
 }
 
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
 .home-main{
   display: block;
   min-height: 400px;
@@ -44,7 +47,7 @@ a:hover {
 }
 .home-text {
   flex: 1;
-  place-items: center;
+  // place-items: center;
   display: grid;
 }
 .home-logo {
@@ -73,11 +76,6 @@ a:hover {
   white-space: pre-wrap;
   letter-spacing: -.4px;
   text-align: center;
-}
-
-.why-quark {
-  background-color: var(--main-bg);
-  color: #000;
 }
 
 .home-subtitle2{
@@ -127,37 +125,30 @@ a:hover {
 
 
 .actions{
-  text-align: center;
   display: flex;
-  flex-wrap: wrap;
-  padding-top: 32px;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 32px;
 }
 
-.action {
-  flex-shrink: 0;
-  padding: 6px;
-  a{
-    border-radius: 20px;
-    padding: 0 20px;
-    line-height: 38px;
-    font-size: 14px;
-    display: inline-block;
-    border: 1px solid transparent;
-    text-align: center;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .get-started{
-    min-width: 100px;
-    background-color: #646cff;
-    color: #fff;
-    &:hover{
-      background-color: #4f57f8;
-    }
-  }
-  .why-quark {
-    border-color: #525259;
+.get-started{
+  min-width: 120px;
+  background-color: #646cff;
+  color: #fff;
+  border-radius: 26px;
+  font-size: 14px;
+  display: inline-block;
+  border: 1px solid transparent;
+  text-align: center;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 1rem 1.25rem;
+  line-height: 112%;
+
+  &:hover{
+    background-color: #4f57f8;
+    color: var(--mute-light);
   }
 }
 
@@ -328,7 +319,6 @@ a:hover {
 
 .box-group {
   display: grid;
-  // grid-template-columns: repeat(auto-fill, 33%);
   grid-column-gap: 1em;
   grid-row-gap: 5em;
 
@@ -424,3 +414,78 @@ a:hover {
     justify-content: center;
   }
 }
+
+.paragraph {
+  display: flex;
+  color: var(--text-font-color);
+  place-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.install-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #fff;
+  border: 1px solid #ced6e0;
+  font-family: "__Roboto_Mono_0db19d","__Roboto_Mono_Fallback_0db19d",Courier New,Courier,monospace;
+  color: #001a3a;
+  transition: border-color .2s ease-out;
+  text-align: center;
+  padding: 1rem 1.25rem;
+  border-radius: 100px;
+  font-size: 16px;
+  line-height: 112%;
+
+  &:hover {
+    border-color: #92a0b3;
+  }
+
+  .cta-icon {
+    position: relative;
+  }
+
+  svg {
+    display: block;
+    // vertical-align: middle;
+  }
+
+  .copy {
+    opacity: 1;
+    transition: opacity .2s ease-out,transform .2s ease-out;
+  }
+
+  .copy.icon-copied {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .checkmark.icon-copied {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+
+  .checkmark {
+    position: absolute;
+    bottom: 100%;
+    opacity: 0;
+    transform: translateY(0);
+    transition: opacity .2s ease-out,transform .2s ease-out;
+  }
+}
+
+
+// .install-btn {
+//   background: #000000;
+//   color: #ddd;
+//   border-color: #222;
+//   transition: all .2s ease-out;
+
+//   &:hover {
+//     color: #fff;
+//     background: #111;
+//     transition: all .2s ease-out;
+//   }
+
+// }

@@ -4,7 +4,7 @@ export default {
     homeSubtitle:
       "它可以同时在任意框架或无框架中使用（跨技术栈组件库、无框架组件库）",
     homeSubtitle2: "它可以被运行在",
-    getStarted: "开始",
+    getStarted: "开 始 →",
     whyQuark: "为什么选择 Quark？",
     scrollDown: "Scroll Down",
     weBelieve: "我们认为",
@@ -16,24 +16,26 @@ export default {
       "得益于 Web Components 在浏览器的原生支持特性，我们使用该技术开发了 Quark Design。",
     whatWeDoDesc2: "这让前端组件库真正实现了「技术栈无关」。",
     advantage: "有什么优势",
-    box1Title: "减少代码量",
+    box1Title: "体积小",
     box1Desc:
-      "构建的组件无需依赖第三方 runtime，平均每个组件体积 1kb ~ 2kb 左右。",
-    box2Title: "浏览器原生",
-    box2Desc: "依托于 Web components 技术，quarkd 可以被任何前端框架使用。",
-    box3Title: "版本稳定",
+      "无框架原生构建，平均每个组件体积 1kb ~ 2kb 左右（甚至部分组件体积小于1kb）。",
+    box2Title: "Web Components",
+    box2Desc: "W3C标准，浏览器原生api实现，Quarkd 底层基于Web Components，面向未来。",
+    box3Title: "跨技术栈",
     box3Desc:
-      "不同于其它第三方组件库，quarkd 不会随着技术栈的升级而更新迭代，无需常年更新，也没有历史包袱",
+      "不同于其它第三方组件库，Quarkd 不依赖任何前端框架！一套组件，所有技术框架皆可使用。",
     whatDesc1:
-      "Quarkd 是一种全新的组件构建方式。传统组件框架如 Antd 和 Vant 等在浏览器中需要做大量的工作，而 Quark 将这些工作放到构建应用程序的编译阶段来处理。",
-    whatDesc2: "组件的数据修改由浏览器自身 API 处理，更简单，更高效！",
+      "Quarkd（Quark design缩写）是一种全新的组件库，底层基于Web Components，不同于传统组件框架（如Antd, Vant），需要浏览器中需要做大量前置工作。Quarkd则将这些工作放到构建应用程序的编译时来处理。",
+    whatDesc2: "组件的数据更新响应由浏览器自身API处理，更简单，更高效！",
+    read4More: "阅读此篇→",
+    moreInfo: "了解更多信息。"
   },
   "en-US": {
     homeTitle: "Next-gen browser-native component library",
     homeSubtitle:
       "It can be used in any frame or frameless at the same time (ps: frameless component library)",
     homeSubtitle2: "It can be run on",
-    getStarted: "Get Started",
+    getStarted: "Get Started →",
     whyQuark: "Why Quark?",
     scrollDown: "Scroll Down",
     weBelieve: "WE BELIEVE",
@@ -49,18 +51,20 @@ export default {
     whatWeDoDesc2:
       "This makes the front-end component library truly independent of the technology stack.",
     advantage: "Advantages",
-    box1Title: "Write less code",
+    box1Title: "Tiny footprint",
     box1Desc:
-      "The built components do not need to rely on third-party runtimes, and the average volume of each component is about 1kb ~ 2kb.",
-    box2Title: "Browser native",
+      "Framework-free native build, the average volume of each component is about 1kb ~ 2kb (even some components are smaller than 1kb).",
+    box2Title: "Web Components",
     box2Desc:
-      "Relying on Web components technology, quarkd can be used by any front-end framework.",
-    box3Title: "Stable version",
+      "W3C standard, browser native api implementation, Quarkd's bottom layer is based on Web Components, facing the future.",
+    box3Title: "Cross technology stack",
     box3Desc:
-      "Unlike other third-party component libraries, quarkd will not update and iterate with the upgrade of the technology stack. It does not need to be updated all year round, and there is no historical burden.",
+      "Unlike other third-party component libraries, Quarkd does not depend on any front-end framework! One set of components, all technical frameworks can be used.",
     whatDesc1:
-      "Quarkd is a brand new way of building components. Traditional component frameworks such as Antd and Vant need to do a lot of work in the browser, but Quark puts these tasks into the compilation phase of building applications.",
+      "Quarkd (Quark design abbreviation) is a brand-new component library. The bottom layer is based on Web Components. Unlike traditional component frameworks (such as Antd and Vant), it requires a lot of pre-work in the browser. Quarkd handles these tasks at compile time when building applications.",
     whatDesc2:
       "The data modification of the component is handled by the browser's own API, which is simpler and more efficient!",
+    read4More: "Read this→",
+    moreInfo: "for more information."
   },
 };
