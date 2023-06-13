@@ -97,7 +97,7 @@ export default class QuarkDocHome extends QuarkElement {
 
   render() {
     return (
-      <Fragment>
+      <>
         <quark-doc-header></quark-doc-header>
         <main class="home-main">
           <section class="home-section">
@@ -355,7 +355,7 @@ export default class QuarkDocHome extends QuarkElement {
             </div>
           </footer>
         </div>
-      </Fragment>
+      </>
     );
   }
 }
