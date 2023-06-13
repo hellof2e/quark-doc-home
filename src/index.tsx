@@ -103,7 +103,7 @@ export default class QuarkDocHome extends QuarkElement {
           <section class="home-section">
               <div class="home-text">
                 <div class="paragraph">
-                  <p>所有创新都发生在事物边缘，所有的颠覆都来自边缘！</p>
+                  <p>{this.#ecosystemLangs.allegory}</p>
                 </div>
                 <div>
                   <div class="home-logo">

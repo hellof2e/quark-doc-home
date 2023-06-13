@@ -5,7 +5,7 @@ export default {
       "它可以同时在任意框架或无框架中使用（跨技术栈组件库、无框架组件库）",
     homeSubtitle2: "它可以被运行在",
     getStarted: "开 始 →",
-    whyQuark: "为什么选择 Quark？",
+    allegory: "所有创新都发生在事物边缘，所有的颠覆都来自边缘。",
     scrollDown: "Scroll Down",
     weBelieve: "我们认为",
     weBelieveDesc1: "组件库可以不用依赖技术框架而存在。",
@@ -36,7 +36,7 @@ export default {
       "It can be used in any frame or frameless at the same time (ps: frameless component library)",
     homeSubtitle2: "It can be run on",
     getStarted: "Get Started →",
-    whyQuark: "Why Quark?",
+    allegory: "All innovation happens at the edge of things, and all disruption comes from the edge.",
     scrollDown: "Scroll Down",
     weBelieve: "WE BELIEVE",
     weBelieveDesc1:
