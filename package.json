@@ -1,24 +1,24 @@
 {
   "name": "quark-doc-home",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "repository": {
     "type": "git",
     "url": "https://github.com/hellof2e/quark-doc-home.git"
   },
   "scripts": {
     "dev": "npm run start",
-    "start": "vite",
+    "start": "vite --force --open",
     "build": "rimraf lib && npm i quark-doc-header && vite build --config vite.config.build.ts",
     "prepublishOnly": "npm run build"
   },
   "type": "module",
-  "main": "./lib/index.js",
+  "main": "./lib/index.umd.js",
   "module": "./lib/index.js",
   "types": "./lib/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./lib/index.js",
-      "require": "./lib/index.umd.cjs",
+      "require": "./lib/index.umd.js",
       "types": "./lib/types/index.d.ts"
     }
   },
@@ -29,8 +29,8 @@
     "quarkd"
   ],
   "dependencies": {
-    "quark-doc-header": "^0.3.22",
-    "quarkc": "^1.0.10"
+    "quark-doc-header": "^0.3.24",
+    "quarkc": "^1.0.17"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.1",

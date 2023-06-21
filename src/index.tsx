@@ -1,4 +1,4 @@
-import { QuarkElement, Fragment, state, property, customElement } from "quarkc"
+import { QuarkElement, state, customElement } from "quarkc"
 import style from "./index.less?inline"
 import langs from "./lang"
 import quarkLogo from "./images/quark-logo.png"
