@@ -29,7 +29,7 @@
     "quarkd"
   ],
   "dependencies": {
-    "quark-doc-header": "^0.3.26",
+    "quark-doc-header": "^0.3.27",
     "quarkc": "^1.0.17"
   },
   "devDependencies": {
