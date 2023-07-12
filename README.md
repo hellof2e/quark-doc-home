@@ -8,11 +8,11 @@ https://www.npmjs.com/package/quark-doc-header
 
 该组件同时被被使用在:
 
-- https://vue-quarkdesign.hellobike.com
-- https://react-quarkdesign.hellobike.com
-- https://vanilla-quarkdesign.hellobike.com
-- https://angular-quarkdesign.hellobike.com
-- https://svelte-quarkdesign.hellobike.com
+- https://vue-quarkd.hellobike.com
+- https://react-quarkd.hellobike.com
+- https://vanilla-quarkd.hellobike.com
+- https://angular-quarkd.hellobike.com
+- https://svelte-quarkd.hellobike.com
 
 ## 如何使用
 
