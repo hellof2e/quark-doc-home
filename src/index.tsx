@@ -57,10 +57,14 @@ export default class QuarkDocHome extends QuarkElement {
     intersectionObserver.observe(advantageTop);
   }
 
-  srcollTo = () => {
-    const scrollDown: any = this.shadowRoot.querySelector("#advantage")
-    scrollDown.scrollIntoView({ behavior: "smooth", block: "center" })
-  }
+// 定义一个名为 scrollTo 的函数
+scrollTo = () => {
+  // 在当前组件的 shadowRoot 中查找 id 为 "advantage" 的元素，并将其存储在 scrollDown 变量中
+  const scrollDown: any = this.shadowRoot.querySelector("#advantage");
+
+  // 使用 scrollIntoView 方法平滑滚动到 scrollDown 元素，并将其位置设置为视口中央
+  scrollDown.scrollIntoView({ behavior: "smooth", block: "center" });
+}
 
   copyPrompt = () => {
     const text = "npn install quarkd";
