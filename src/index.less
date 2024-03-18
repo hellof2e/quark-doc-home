@@ -47,7 +47,6 @@ button {
 }
 .home-text {
   flex: 1;
-  // place-items: center;
   display: grid;
 }
 .home-logo {
@@ -61,9 +60,7 @@ button {
     top: 50%;
     left: 50%;
     width: 192px;
-    height: 192px;
     transform: translate(-50%,-50%);
-
     // 光晕
     filter: drop-shadow(0 0 2em #646cffaa);
   }
@@ -90,10 +87,6 @@ button {
   font-size: 38px;
 }
 
-.tech-name {
-  width: 136px;
-  animation: 2.5s infinite text-alter;
-}
 
 .text-grad {
   --brand-gradient: linear-gradient(180deg,#9dbcff,#646cff);
@@ -102,26 +95,7 @@ button {
   color: transparent;
 }
 
-.tech-name {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
 
-@keyframes text-alter {
-  0%{
-    opacity: 0;
-    transform: translateY(25%);
-  }
-  10%, 80% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-25%);
-  }
-}
 
 
 .actions{
@@ -157,7 +131,8 @@ button {
   padding-bottom: 40px;
   transition: opacity .2s ease-in;
   position: relative;
-  color: inherit;
+  cursor: pointer;
+
   &:hover {
     text-decoration: underline;
   }
@@ -220,103 +195,6 @@ button {
   }
 }
 
-.code-demo-tab-group {
-  margin-top: 30px;
-  button {
-    background: #21252b;
-    color: #fff;
-    cursor: pointer;
-    padding: 8px 10px;
-  }
-  .active-tab {
-    background: #7961f3;
-  }
-}
-
-.code-demo {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  background: #21252b;
-
-  .preview {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: linear-gradient(to right,  #a855f7, #6366f1);
-    height: 500px;
-
-    quark-button {
-      width: 108px;
-      height: 40px;
-      color: rgb(255 255 255 / 1);
-      background-color: rgb(0 0 0 / .2);
-
-      font-size: 16px;
-      --button-icon-hspacing: 6px;
-    }
-  }
-
-  .demo-wrap {
-    --tab-item-min-width: 60px;
-    width: 400px;
-    border-radius: 4px;
-    overflow: hidden;
-    .tab-item {
-      padding: 30px 30px 50px;
-    }
-  }
-
-  .editor-skin-header {
-    display: flex;
-    height: 40px;
-    line-height: 40px;
-    align-items: center;
-    background-color: #21252b;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-  }
-
-  .editor-skin-header-btn-group {
-    margin: 0 10px;
-    display: flex;
-  }
-
-  .editor-skin-header-btn {
-    width: 12px;
-    height: 12px;
-    margin: 0 4px;
-    border-radius: 6px;
-  }
-
-  .red {
-    background-color: #ff4a4a;
-  }
-
-  .yellow {
-    background-color: #ffb83d;
-  }
-
-  .green {
-    background-color: #00c543;
-  }
-
-  .ͼ1.cm-editor {
-    border-bottom-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    overflow: hidden;
-  }
-
-  .ͼo .cm-gutters {
-    background-color: #141f31;
-    color: #7d8799;
-    border: none;
-  }
-  .ͼo {
-    color: #abb2bf;
-    background-color: #141f31;
-  }
-}
-
 .box-group {
   display: grid;
   grid-column-gap: 1em;
@@ -328,7 +206,7 @@ button {
     "what what what how how how";
 
   >div {
-    padding: 2em;
+    padding: 2em 1.4em;
     display: flex;
     flex-direction: column;
     border-bottom: none;
@@ -476,16 +354,30 @@ button {
 }
 
 
-// .install-btn {
-//   background: #000000;
-//   color: #ddd;
-//   border-color: #222;
-//   transition: all .2s ease-out;
+.toper-tips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 45px;
+  background: #1e1e1e;
+  font-size: 13px;
+  position: relative;
 
-//   &:hover {
-//     color: #fff;
-//     background: #111;
-//     transition: all .2s ease-out;
-//   }
+  a {
+    color: #ddd;
+  }
 
-// }
+  .close {
+    position: absolute;
+    right: 80px;
+    width: 45px;
+    cursor: pointer;
+    text-align: center;
+    color: #ddd;
+    margin: 0;
+  }
+  .close:hover,
+  a:hover {
+    color: #fff;
+  }
+}

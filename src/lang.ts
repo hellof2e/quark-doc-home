@@ -1,9 +1,8 @@
 export default {
   "zh-CN": {
-    homeTitle: "下一代浏览器原生组件库",
-    homeSubtitle:
-      "它可以同时在任意框架或无框架中使用（跨技术栈组件库、无框架组件库）",
-    homeSubtitle2: "它可以被运行在",
+    homeTitle: "Quark Design 2.0",
+    homeSubtitle: "无框架，跨框架",
+    homeSubtitle2: "下一代浏览器原生组件库，它可以被运行在",
     getStarted: "开 始 →",
     allegory: "所有创新都发生在事物边缘，所有的颠覆都来自边缘。",
     scrollDown: "Scroll Down",
@@ -14,16 +13,16 @@ export default {
     whatWeDo: "我们做了什么",
     whatWeDoDesc1:
       "得益于 Web Components 在浏览器的原生支持特性，我们使用该技术开发了 Quark Design。",
-    whatWeDoDesc2: "这让前端组件库真正实现了「技术栈无关」。",
+    whatWeDoDesc2: "这让前端组件库真正实现了「技术栈无关」，无框架，跨框架。",
     advantage: "有什么优势",
     box1Title: "体积小",
     box1Desc:
       "无框架原生构建，平均每个组件体积 1kb ~ 2kb 左右（甚至部分组件体积小于1kb）。",
-    box2Title: "Web Components",
-    box2Desc: "W3C标准，浏览器原生api实现，Quarkd 底层基于Web Components，面向未来。",
+    box2Title: "W3C标准",
+    box2Desc: "组件由浏览器原生api实现，Quarkd 底层基于Web Components，面向未来。",
     box3Title: "跨技术栈",
     box3Desc:
-      "不同于其它第三方组件库，Quarkd 不依赖任何前端框架！一套组件，所有技术框架皆可使用。",
+      "不依赖任何前端框架！一套组件，所有技术框架皆可使用。",
     whatDesc1:
       "Quarkd（Quark design缩写）是一种全新的组件库，底层基于Web Components，不同于传统组件框架（如Antd, Vant），需要浏览器中需要做大量前置工作。Quarkd则将这些工作放到构建应用程序的编译时来处理。",
     whatDesc2: "组件的数据更新响应由浏览器自身API处理，更简单，更高效！",
@@ -31,9 +30,8 @@ export default {
     moreInfo: "了解更多信息。"
   },
   "en-US": {
-    homeTitle: "Next-gen browser-native component library",
-    homeSubtitle:
-      "It can be used in any frame or frameless at the same time (ps: frameless component library)",
+    homeTitle: "Quark Design 2.0",
+    homeSubtitle: "Frameless, Cross-Frame",
     homeSubtitle2: "It can be run on",
     getStarted: "Get Started →",
     allegory: "All innovation happens at the edge of things, and all disruption comes from the edge.",
@@ -47,19 +45,19 @@ export default {
       "It does not need to be updated with the update of the technology stack.",
     whatWeDo: "WHAT WE DO",
     whatWeDoDesc1:
-      "Benefiting from the native support of web components in browsers, we developed Quark Design using this technology.",
+      "Benefiting from the native support of web components in browsers, we developed Quark Design using this technology.Frameless, Cross-Frame.",
     whatWeDoDesc2:
       "This makes the front-end component library truly independent of the technology stack.",
     advantage: "Advantages",
     box1Title: "Tiny footprint",
     box1Desc:
       "Framework-free native build, the average volume of each component is about 1kb ~ 2kb (even some components are smaller than 1kb).",
-    box2Title: "Web Components",
+    box2Title: "W3C standards",
     box2Desc:
-      "W3C standard, browser native api implementation, Quarkd's bottom layer is based on Web Components, facing the future.",
+      "Components are implemented by the browser's native API, and the underlying layer of Quarkd is based on Web Components and is future-oriented.",
     box3Title: "Cross technology stack",
     box3Desc:
-      "Unlike other third-party component libraries, Quarkd does not depend on any front-end framework! One set of components, all technical frameworks can be used.",
+      "Does not rely on any front-end framework! A set of components that can be used by all technology frameworks.",
     whatDesc1:
       "Quarkd (Quark design abbreviation) is a brand-new component library. The bottom layer is based on Web Components. Unlike traditional component frameworks (such as Antd and Vant), it requires a lot of pre-work in the browser. Quarkd handles these tasks at compile time when building applications.",
     whatDesc2:

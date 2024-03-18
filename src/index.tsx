@@ -18,13 +18,14 @@ declare global {
 export default class QuarkDocHome extends QuarkElement {
   #isZhLang
   #ecosystemLangs
-  #framework
+  // #framework
 
   constructor() {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
-    this.#framework = ["Vue2.x", "Vue3.x", "React", "Angular", "Svelte", "Vanilla"]
+    // this.#framework = ["Vue2.x", "Vue3.x", "React", "Angular", "Svelte", "Vanilla"]
+    // this.#framework = ["跨框架", "更轻量"]
   }
 
   @state()
@@ -34,9 +35,6 @@ export default class QuarkDocHome extends QuarkElement {
   activeFwIndex = 0
 
   @state()
-  timeInter = null
-
-  @state()
   iconCopiedChange = false
 
   componentDidMount() {
@@ -44,26 +42,24 @@ export default class QuarkDocHome extends QuarkElement {
       this.darkMode = true;
     }
 
-    this.timeInter = setInterval(() => {
-      if (this.activeFwIndex >= 5) {
-        this.activeFwIndex = 0;
-      } else {
-        this.activeFwIndex ++;
-      }
-    }, 2500);
-
     const scrollDown: any = this.shadowRoot.querySelector("#scroll-down")
+    const advantageTop = this.shadowRoot.querySelector("#advantage") as HTMLElement | null
+
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
-        // 进入视窗
-        if (entries[0].isIntersecting) {
+        if (entries[0].isIntersecting) { // 进入视窗
           scrollDown.style.opacity = 0;
         } else {
           scrollDown.style.opacity = 1;
         }
       }
     )
-    intersectionObserver.observe(this.shadowRoot.querySelector("#we-believe"));
+    intersectionObserver.observe(advantageTop);
+  }
+
+  srcollTo = () => {
+    const scrollDown: any = this.shadowRoot.querySelector("#advantage")
+    scrollDown.scrollIntoView({ behavior: "smooth", block: "center" })
   }
 
   copyPrompt = () => {
@@ -98,6 +94,10 @@ export default class QuarkDocHome extends QuarkElement {
   render() {
     return (
       <>
+        <div class="toper-tips">
+          <div><a href="">🎉🎉🎉 Quarkd 2.0 正式发布！支持组件外部修改内部样式，点击跳转详情。</a></div>
+          <p class="close" title="不再展示">x</p>
+        </div>
         <quark-doc-header></quark-doc-header>
         <main class="home-main">
           <section class="home-section">
@@ -113,9 +113,7 @@ export default class QuarkDocHome extends QuarkElement {
                     { this.#ecosystemLangs.homeTitle }
                   </h1>
                   <p class="home-subtitle2 text-grad">
-                    { this.#ecosystemLangs.homeSubtitle2 }
-                    &nbsp;
-                    <span class="tech-name text-grad">{ this.#framework[this.activeFwIndex] }</span>
+                    { this.#ecosystemLangs.homeSubtitle }
                   </p>
 
                   <div class="actions">
@@ -176,7 +174,7 @@ export default class QuarkDocHome extends QuarkElement {
               <a
                 class="scroll-down"
                 id="scroll-down"
-                href="#advantage"
+                onClick={this.srcollTo}
                 style="opacity: 1"
               >
                 <span>{ this.#ecosystemLangs.scrollDown }</span>
@@ -299,7 +297,6 @@ export default class QuarkDocHome extends QuarkElement {
                     width="36"
                   />
                 }
-
               </h2>
               <p>
                 { this.#ecosystemLangs.whatWeDoDesc1 }
@@ -311,47 +308,14 @@ export default class QuarkDocHome extends QuarkElement {
               <a class="get-started" href={ this.#isZhLang ? `#/zh-CN/guide/quickstart`: `#/en-US/guide/quickstart`}>
                 { this.#ecosystemLangs.getStarted }
               </a>
-
-              {/* <div class="code-demo-tab-group">
-                <button
-                  v-for="item in tabs"
-                  :key="item"
-                  @click="handleTabSwitch(item)"
-                  :class="activeTab === item ? 'active-tab' : ''"
-                >
-                  { item }
-                </button>
-              </div>
-
-              <div class="code-demo-container">
-                <div class="code-demo relative">
-                  <div>
-                    <div class="editor-skin-header">
-                      <div class="editor-skin-header-btn-group">
-                        <span class="editor-skin-header-btn red"></span>
-                        <span class="editor-skin-header-btn yellow"></span>
-                        <span class="editor-skin-header-btn green"></span>
-                      </div>
-                    </div>
-                    <CodeDemo :tabName="activeTab" />
-                  </div>
-
-                  <div class="preview">
-                    <quark-button size="big" :loading="isLoading" @click="handleClick"
-                      >Button</quark-button
-                    >
-                  </div>
-                </div>
-              </div> */}
             </div>
           </section>
-
         </main>
 
         <div class="footer-container">
           <footer>
             <div class="text-xs text-gray-400">
-              A project by <a href="/"> Quark Labs</a>
+              A project by <a href="javascript:;"> Quark Labs</a>
             </div>
           </footer>
         </div>
