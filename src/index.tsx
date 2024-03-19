@@ -99,7 +99,7 @@ scrollTo = () => {
     return (
       <>
         <div class="toper-tips">
-          <div><a href="">🎉🎉🎉 Quarkd 2.0 正式发布！支持组件外部修改内部样式，点击跳转详情。</a></div>
+          <div><a href={ this.#isZhLang ? `#/zh-CN/guide/tips`: `#/en-US/guide/tips`}>🎉🎉🎉 Quarkd 2.0 正式发布！支持组件外部修改内部样式，点击跳转详情。</a></div>
           <p class="close" title="不再展示">x</p>
         </div>
         <quark-doc-header></quark-doc-header>
