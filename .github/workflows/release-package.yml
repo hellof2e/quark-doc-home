@@ -29,6 +29,13 @@ jobs:
 
       - run: npm install
       - run: npm run release:patch # 发布新版本
+
+      - name: git add
+        run: |
+          git add .
+          git commit -m "feat: update package.json version"
+          git push
+
       - run: npm run build
 
       - name: publish # 向npm publish 代码 请遵循npm规范.
