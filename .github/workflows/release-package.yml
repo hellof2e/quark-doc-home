@@ -14,12 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 # 先检出代码
+      - uses: actions/checkout@v3 # 先检出代码
 
-      - name: 初始化node环境
-        uses: actions/setup-node@v1
+      - name: Setup NodeJs
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          # node-version: ${{ matrix.node-version }}
+          node-version: x.y
           registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
       # - name: Bump Version and Create Release
@@ -35,17 +36,17 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Bump package version
-        uses: jpb06/bump-package@latest
+      - name: Bump Version of package.json
+        uses: ramonpaolo/bump-version@v2.3.1
         with:
-          patch-keywords: feat,release
+          tag: ${{ github.ref_name }} # Accessing the context and get the reference_name, that in this case, is the tag that you created(ex: v1.0.0)
+          commit: true
+          branch_to_push: 'main'
 
-
-
-      - name: publish # 向npm publish 代码 请遵循npm规范.
+      - name: publish # 向 npm publish 代码 请遵循 npm 规范.
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
-        run: npm publish
       # 到这如果全部成功，那么我们就成功的将代码发布到了npm
 
       # 下面主要是创建 github 的release
