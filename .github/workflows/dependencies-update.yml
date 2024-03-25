@@ -1,0 +1,23 @@
+name: auto update dependencies
+
+on:
+  repository_dispatch:
+    types: [trigger-action]
+
+jobs:
+  copy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 # 检出仓库
+      - uses: actions/setup-node@v3 # 设置node版本
+        with:
+          node-version: 16
+      - run: npm install
+      - run: npm run build
+
+      - name: Trigger Action
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_ACTION }}
+          repository: hellof2e/quark-doc-home
+          event-type: deploy-v2-site.yml
