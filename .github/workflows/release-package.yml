@@ -22,21 +22,25 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
-      - name: Set up Git
-        run: |
-          git config --global user.name "xsf0105"
-          git config --global user.email "allan91coder@gmail.com"
+      # - name: Bump Version and Create Release
+      #   uses: tcatm/actions-next-version@v1.5.0 # 或者使用其他的版本bump action工具
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
       - run: npm install
-      - run: npm run release:patch # 发布新版本
-
-      - name: git add
-        run: |
-          git add .
-          git commit -m "feat: update package.json version"
-          git push
-
       - run: npm run build
+
+      # - name: Bump Version and Create Release
+      #   uses: tcatm/actions-next-version@v1.5.0 # 或者使用其他的版本bump action工具
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Bump package version
+        uses: jpb06/bump-package@latest
+        with:
+          patch-keywords: feat,release
+
+
 
       - name: publish # 向npm publish 代码 请遵循npm规范.
         env:
@@ -46,7 +50,7 @@ jobs:
 
       # 下面主要是创建 github 的release
       # 需要手动修改 package.json 版本
-      # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的package.json 数据
+      # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的 package.json 数据
       - name: Read package.json
         uses: tyankatsu0105/read-package-version-actions@v1
         id: package-version
