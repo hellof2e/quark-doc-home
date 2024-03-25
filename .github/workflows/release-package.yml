@@ -6,6 +6,9 @@ on:
     paths:
       - 'package*.json'
 
+  repository_dispatch:
+    types: [my-event]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,6 +23,7 @@ jobs:
           registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
       - run: npm install
+      - run: npm run release:patch # 发布新版本
       - run: npm run build
 
       - name: publish # 向npm publish 代码 请遵循npm规范.
