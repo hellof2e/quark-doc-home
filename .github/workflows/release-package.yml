@@ -1,96 +1,146 @@
-name: Release
+# name: Release
+
+# on:
+#   push:
+#     branches: [ main ]
+#     # paths:
+#     #   - 'package*.json'
+
+#   repository_dispatch:
+#     types: [my-event]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+
+#       - name: Checkout code
+#         uses: actions/checkout@v3
+
+#       # - name: Setup NodeJs
+#       #   uses: actions/setup-node@v1
+#       #   with:
+#       #     node-version: ${{ matrix.node-version }}
+#       #     registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
+
+#       # - name: Bump Version and Create Release
+#       #   uses: tcatm/actions-next-version@v1.5.0 # 或者使用其他的版本bump action工具
+#       #   env:
+#       #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+
+#       - name: Update package.json
+#         run: |
+#           echo ${{ github.event.release.tag_name }}
+#           node ./scripts/update-version.js 2.0.7
+#       # node ./scripts/update-version.js ${{ github.event.release.tag_name }}
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+
+#       - name: Set Git user
+#         env:
+#           GITHUB_ACTOR: ${{ github.actor }}
+#           GITHUB_EMAIL: ${{ github.actor }}@users.noreply.github.com
+#         run: |
+#           git config --global user.name "${{ env.GITHUB_ACTOR }}"
+#           git config --global user.email "${{ env.GITHUB_EMAIL }}"
+
+#       - name: Commit changes
+#         run: |
+#           git add .
+#           git commit -m "Update version to ${{ github.event.release.tag_name }} for release ${{ github.ref }}"
+#           git_hash=$(git rev-parse --short HEAD)
+
+#       - name: Push changes
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GIT_ACTION }}
+
+#       - name: Tag Push changes
+#         run: |
+#           git tag -f ${{ github.event.release.tag_name }} $git_hash
+#           git push --force origin ${{ github.event.release.tag_name }}
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+
+
+
+#       # - name: Publish package to NPM
+#       #   run: npm publish
+#       #   env:
+#       #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # NPM Token necessary to deploy packages on pipelines CI/CD
+
+#       # - name: publish # 向 npm publish 代码 请遵循 npm 规范.
+#       #   run: npm publish
+#       #   env:
+#       #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
+#       # # 到这如果全部成功，那么我们就成功的将代码发布到了npm
+
+#       # # 下面主要是创建 github 的release
+#       # # 需要手动修改 package.json 版本
+#       # # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的 package.json 数据
+#       # - name: Read package.json
+#       #   uses: tyankatsu0105/read-package-version-actions@v1
+#       #   id: package-version
+
+#       #   # 关于创建 release 的更多参数，可以查看 actions/create-release@v1
+#       # - name: Create Release for Tag
+#       #   id: release_tag
+#       #   uses: actions/create-release@v1
+#       #   env:
+#       #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }} # 这块需要用到 github的token，因为需要对分之进行代码推送
+#       #   with:
+#       #     tag_name: v${{ steps.package-version.outputs.version }}
+#       #     release_name: Release v${{ steps.package-version.outputs.version }}
+#       #     prerelease: false # 是否为预发布版本
+#       #     # body: |
+#       #     #   请点击查看 [更新日志]().
+
+
+name: Publish to NPM
 
 on:
   push:
     branches: [ main ]
-    # paths:
-    #   - 'package*.json'
-
-  repository_dispatch:
-    types: [my-event]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  build:
+  publish-to-npm:
     runs-on: ubuntu-latest
     steps:
-
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # - name: Setup NodeJs
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      #     registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
-
-      # - name: Bump Version and Create Release
-      #   uses: tcatm/actions-next-version@v1.5.0 # 或者使用其他的版本bump action工具
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
-
-      - name: Update package.json
-        run: |
-          echo ${{ github.event.release.tag_name }}
-          node ./scripts/update-version.js 2.0.7
-      # node ./scripts/update-version.js ${{ github.event.release.tag_name }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
-
-      - name: Set Git user
-        env:
-          GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_EMAIL: ${{ github.actor }}@users.noreply.github.com
-        run: |
-          git config --global user.name "${{ env.GITHUB_ACTOR }}"
-          git config --global user.email "${{ env.GITHUB_EMAIL }}"
-
-      - name: Commit changes
-        run: |
-          git add .
-          git commit -m "Update version to ${{ github.event.release.tag_name }} for release ${{ github.ref }}"
-          git_hash=$(git rev-parse --short HEAD)
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Checkout release branch code
+        uses: actions/checkout@v2
         with:
-          github_token: ${{ secrets.GIT_ACTION }}
+          fetch-depth: 1
 
-      - name: Tag Push changes
-        run: |
-          git tag -f ${{ github.event.release.tag_name }} $git_hash
-          git push --force origin ${{ github.event.release.tag_name }}
+      - name: Get yarn cache
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org
+
+      - name:  'Automated Version Bump'
+        uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+        with:
+          default: prerelease
+          rc-wording:     'RELEASE,alpha,PicX'
 
-
-
-      # - name: Publish package to NPM
-      #   run: npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # NPM Token necessary to deploy packages on pipelines CI/CD
-
-      # - name: publish # 向 npm publish 代码 请遵循 npm 规范.
-      #   run: npm publish
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
-      # # 到这如果全部成功，那么我们就成功的将代码发布到了npm
-
-      # # 下面主要是创建 github 的release
-      # # 需要手动修改 package.json 版本
-      # # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的 package.json 数据
-      # - name: Read package.json
-      #   uses: tyankatsu0105/read-package-version-actions@v1
-      #   id: package-version
-
-      #   # 关于创建 release 的更多参数，可以查看 actions/create-release@v1
-      # - name: Create Release for Tag
-      #   id: release_tag
-      #   uses: actions/create-release@v1
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }} # 这块需要用到 github的token，因为需要对分之进行代码推送
-      #   with:
-      #     tag_name: v${{ steps.package-version.outputs.version }}
-      #     release_name: Release v${{ steps.package-version.outputs.version }}
-      #     prerelease: false # 是否为预发布版本
-      #     # body: |
-      #     #   请点击查看 [更新日志]().
+      - name: Publish to NPM
+        run: npm publish || true
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
