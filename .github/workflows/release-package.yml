@@ -37,12 +37,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
+      - name: Set Git user
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_EMAIL: ${{ github.actor }}@users.noreply.github.com
+        run: |
+          git config --global user.name "${{ env.GITHUB_ACTOR }}"
+          git config --global user.email "${{ env.GITHUB_EMAIL }}"
+
       - name: Commit changes
         run: |
-          git config user.name "xsf0105"
-          git config user.email "allan91coder@gmail.com"
           git add .
           git commit -m "Update version to ${{ github.event.release.tag_name }} for release ${{ github.ref }}"
+          git_hash=$(git rev-parse --short HEAD)
 
       - name: Push changes
         uses: ad-m/github-push-action@master
