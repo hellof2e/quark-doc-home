@@ -59,3 +59,11 @@ jobs:
           prerelease: false # 是否为预发布版本
           # body: |
           #   请点击查看 [更新日志]().
+
+      # 当前 action 执行后触发另一个仓库的 action 执行
+      - name: Trigger Action
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_ACTION }}
+          repository: hellof2e/vue-quarkd.hellobike.com
+          event-type: my-event
