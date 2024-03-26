@@ -12,32 +12,51 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2 # 先检出代码
 
-      - name: Setup NodeJs
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # - name: Setup NodeJs
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
       # - name: Bump Version and Create Release
       #   uses: tcatm/actions-next-version@v1.5.0 # 或者使用其他的版本bump action工具
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
-      - run: npm install
-      - run: npm run build
-      - run: echo 11${{github.ref_name}}
-      - run: echo 22${{ matrix.node-version }}
+      # - run: npm install
+      # - run: npm run build
 
-      - name: Bump Version of package.json
-        uses: ramonpaolo/bump-version@v2.3.1
+      - name: Update package.json
+        run: |
+          node ./scripts/update-version.js ${{ github.event.release.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+
+      - name: Commit changes
+        run: |
+          git config user.name "xsf0105"
+          git config user.email "allan91coder@gmail.com"
+          git add .
+          git commit -m "Update version to ${{ github.event.release.tag_name }} for release ${{ github.ref }}"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
         with:
-          tag: ${{ github.ref_name }} # Accessing the context and get the reference_name, that in this case, is the tag that you created(ex: v1.0.0)
-          commit: true
-          branch_to_push: 'main'
+          github_token: ${{ secrets.GIT_ACTION }}
+
+      - name: Tag Push changes
+        run: |
+          git tag -f ${{ github.event.release.tag_name }} $git_hash
+          git push --force origin ${{ github.event.release.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
+
+
 
       # - name: Publish package to NPM
       #   run: npm publish
