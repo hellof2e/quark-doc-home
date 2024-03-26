@@ -61,9 +61,41 @@ jobs:
           #   请点击查看 [更新日志]().
 
       # 当前 action 执行后触发另一个仓库的 action 执行
-      - name: Trigger Action
+      - name: Trigger Action 1
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.GIT_ACTION }}
-          repository: hellof2e/vue-quarkd.hellobike.com
+          repository: hellof2e/quarkd-docs-vue
+          event-type: my-event
+
+      # 当前 action 执行后触发另一个仓库的 action 执行
+      - name: Trigger Action 2
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_ACTION }}
+          repository: hellof2e/quarkd-docs-react
+          event-type: my-event
+
+      # 当前 action 执行后触发另一个仓库的 action 执行
+      - name: Trigger Action 3
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_ACTION }}
+          repository: hellof2e/quarkd-docs-vanilla
+          event-type: my-event
+
+      # 当前 action 执行后触发另一个仓库的 action 执行
+      - name: Trigger Action 4
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_ACTION }}
+          repository: hellof2e/quarkd-docs-angular
+          event-type: my-event
+
+      # 当前 action 执行后触发另一个仓库的 action 执行
+      - name: Trigger Action 5
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GIT_ACTION }}
+          repository: hellof2e/quarkd-docs-svelte
           event-type: my-event
