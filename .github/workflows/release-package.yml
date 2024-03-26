@@ -36,7 +36,7 @@ jobs:
           # rc-wording:     'RELEASE,alpha'
 
       - run: npm install
-      - run: npm run build
+      # - run: npm run build # npm publish的时候会自动执行 prepublishOnly 脚本（package.json）
 
       - name: Publish to NPM
         run: npm publish || true
