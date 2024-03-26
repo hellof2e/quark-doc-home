@@ -3,8 +3,8 @@ name: Release
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'package*.json'
+    # paths:
+    #   - 'package*.json'
 
   repository_dispatch:
     types: [my-event]
