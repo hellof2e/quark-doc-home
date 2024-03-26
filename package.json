@@ -9,7 +9,7 @@
     "dev": "npm run start",
     "start": "vite --force --open",
     "update": "npm i quark-doc-header",
-    "build": "rimraf lib && npm run update && vite build --config vite.config.build.ts",
+    "build": "npm run update && vite build --config vite.config.build.ts",
     "release:patch": "npm run release -- --release-as patch",
     "release": "standard-version",
     "prepublishOnly": "npm run build"
