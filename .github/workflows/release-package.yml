@@ -19,7 +19,7 @@ jobs:
       - name: Setup NodeJs
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: x.y
           registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
       # - name: Bump Version and Create Release
