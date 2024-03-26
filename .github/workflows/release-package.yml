@@ -42,10 +42,9 @@ jobs:
 
       - name: Commit changes
         run: |
-          git push
           git add .
           git commit -m "Update version to ${{ github.event.release.tag_name }} for release ${{ github.ref }}"
-          git_hash=$(git rev-parse --short HEAD)
+          git push
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -54,7 +53,7 @@ jobs:
 
       - name: Tag Push changes
         run: |
-          git tag -f ${{ github.event.release.tag_name }} $git_hash
+          git tag -f ${{ github.event.release.tag_name }}
           git push --force origin ${{ github.event.release.tag_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
