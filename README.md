@@ -1,10 +1,10 @@
 # Quark design 文档公共首页
 
 当前分支提交带有 `patch`, `fixes` 关键词，会触发 yml 自动构建，并发布到 `npm` 仓库。
-此外，当 `quark-doc-header` 包版本号发生变更，也会触发 yml 自动构建，并发布到 `npm` 仓库。
-
 同时触发 `hellof2e/quarkd-docs-vue` action 执行，自动构建并推送静态资源到 [quark-ecosystem/quarkd-docs](https://github.com/quark-ecosystem/quarkd-docs)。
 
+
+此外，当 `quark-doc-header` 包版本号发生变更，也会触发以上步骤。
 
 https://www.npmjs.com/package/quark-doc-header
 
