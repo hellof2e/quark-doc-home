@@ -35,7 +35,7 @@ jobs:
         with:
           tag: ${{ github.ref_name }} # Accessing the context and get the reference_name, that in this case, is the tag that you created(ex: v1.0.0)
           commit: true
-          branch_to_push: 'main'
+          # branch_to_push: 'main'
 
       - name: Publish package to NPM
         run: npm publish
