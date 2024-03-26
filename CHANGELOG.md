@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 2.0.7 (2024-03-26)
+
+
+### Features
+
+* test ([73d1962](https://github.com/hellof2e/quark-doc-home/commit/73d19621216bf3817908ec70ede690e9ff908088))
+
 ### [2.0.6](https://github.com/hellof2e/quark-doc-home/compare/v2.0.5...v2.0.6) (2024-03-26)
 
 
