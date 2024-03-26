@@ -28,6 +28,12 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
+      - name: Update package.json
+        run: |
+          node ./scripts/update-version.js ${{ github.event.release.tag_name }}
+          echo ${{ github.event.release.tag_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
       - name: Set Git user
         env:
@@ -36,10 +42,6 @@ jobs:
         run: |
           git config --global user.name "${{ env.GITHUB_ACTOR }}"
           git config --global user.email "${{ env.GITHUB_EMAIL }}"
-
-      - run: npm install
-      - run: npm run release:patch
-
 
       - name: Commit changes
         run: |

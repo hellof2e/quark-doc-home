@@ -1,13 +1,10 @@
-//update-version.js
-
-const path = require('path');
-const fs = require('fs');
-const newVersion = process.argv[2].replace(/^v/, '');; // 获取命令行参数中的新版本号,并过滤v字头
+import path from 'path'
+import fs from 'fs'
+const newVersion = process.argv[2]?.replace(/^v/, '');; // 获取命令行参数中的新版本号,并过滤v字头
 
 if (!newVersion) {
     console.log('请传入新版本号，版本号遵循semver规范 .eg: 1.0.0, 1.0.1, 1.1.0');
     process.exit(1);
-
 }
 
 // 获取当前命令行上下文路径
