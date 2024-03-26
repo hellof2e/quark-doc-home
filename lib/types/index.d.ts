@@ -10,9 +10,9 @@ export default class QuarkDocHome extends QuarkElement {
     constructor();
     darkMode: boolean;
     activeFwIndex: number;
-    timeInter: any;
     iconCopiedChange: boolean;
     componentDidMount(): void;
+    scrollTo: () => void;
     copyPrompt: () => void;
     render(): any;
 }
