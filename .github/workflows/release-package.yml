@@ -42,6 +42,7 @@ jobs:
 
       - name: Commit changes
         run: |
+          git pull
           git add .
           git commit -m "Update version to ${{ github.event.release.tag_name }} for release ${{ github.ref }}"
           git_hash=$(git rev-parse --short HEAD)
