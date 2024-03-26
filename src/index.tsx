@@ -18,18 +18,18 @@ declare global {
 export default class QuarkDocHome extends QuarkElement {
   #isZhLang
   #ecosystemLangs
-  // #framework
 
   constructor() {
     super()
     this.#isZhLang = localStorage.getItem("language") === "zh-CN"
     this.#ecosystemLangs = this.#isZhLang ? langs["zh-CN"] : langs["en-US"]
-    // this.#framework = ["Vue2.x", "Vue3.x", "React", "Angular", "Svelte", "Vanilla"]
-    // this.#framework = ["跨框架", "更轻量"]
   }
 
   @state()
   darkMode = false
+
+  @state()
+  tipsVisible = true
 
   @state()
   activeFwIndex = 0
@@ -38,9 +38,9 @@ export default class QuarkDocHome extends QuarkElement {
   iconCopiedChange = false
 
   componentDidMount() {
-    if(localStorage.getItem('theme') === 'dark') {
-      this.darkMode = true;
-    }
+
+    this.darkMode = localStorage.getItem('theme') === 'dark'
+    this.tipsVisible = !localStorage.getItem('tipsVisible');
 
     const scrollDown: any = this.shadowRoot.querySelector("#scroll-down")
     const advantageTop = this.shadowRoot.querySelector("#advantage") as HTMLElement | null
@@ -57,14 +57,15 @@ export default class QuarkDocHome extends QuarkElement {
     intersectionObserver.observe(advantageTop);
   }
 
-// 定义一个名为 scrollTo 的函数
-scrollTo = () => {
-  // 在当前组件的 shadowRoot 中查找 id 为 "advantage" 的元素，并将其存储在 scrollDown 变量中
-  const scrollDown: any = this.shadowRoot.querySelector("#advantage");
 
-  // 使用 scrollIntoView 方法平滑滚动到 scrollDown 元素，并将其位置设置为视口中央
-  scrollDown.scrollIntoView({ behavior: "smooth", block: "center" });
-}
+  // 定义一个名为 scrollTo 的函数
+  scrollTo = () => {
+    // 在当前组件的 shadowRoot 中查找 id 为 "advantage" 的元素，并将其存储在 scrollDown 变量中
+    const scrollDown: any = this.shadowRoot.querySelector("#advantage");
+
+    // 使用 scrollIntoView 方法平滑滚动到 scrollDown 元素，并将其位置设置为视口中央
+    scrollDown.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 
   copyPrompt = () => {
     const text = "npn install quarkd";
@@ -98,10 +99,6 @@ scrollTo = () => {
   render() {
     return (
       <>
-        <div class="toper-tips">
-          <div><a href={ this.#isZhLang ? `./#/zh-CN/guide/tips`: `./#/en-US/guide/tips`}>🎉🎉🎉 Quarkd 2.0 正式发布！支持组件外部修改内部样式，点击跳转详情。</a></div>
-          <p class="close" title="不再展示">x</p>
-        </div>
         <quark-doc-header></quark-doc-header>
         <main class="home-main">
           <section class="home-section">
