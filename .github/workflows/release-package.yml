@@ -137,8 +137,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
         with:
-          default: prerelease
-          rc-wording:     'RELEASE,alpha,PicX'
+          minor-wording:  'add,Adds,new'
+          major-wording:  'MAJOR,cut-major'
+          patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
+                                            # defaulting to a patch bump.
+          rc-wording:     'RELEASE,alpha'
 
       - name: Publish to NPM
         run: npm publish || true
