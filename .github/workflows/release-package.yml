@@ -22,7 +22,8 @@ jobs:
           registry-url: https://registry.npmjs.org/ # 如果不配置将影响publish
 
 
-      - name:  'Automated Version Bump'
+      # 修改package.json版本号, 修改后提交到仓库
+      - name: Bump version and push to GitHub
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
