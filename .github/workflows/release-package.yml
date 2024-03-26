@@ -27,9 +27,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
         with:
-          minor-wording:  'add,Adds,new'
-          major-wording:  'MAJOR,cut-major'
+          # minor-wording:  'add,Adds,new'
+          # major-wording:  'MAJOR,cut-major'
           patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
+          # patch-wording:  'feat,release'     # Providing patch-wording will override commits
                                             # defaulting to a patch bump.
           rc-wording:     'RELEASE,alpha'
 
