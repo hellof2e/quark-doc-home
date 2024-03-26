@@ -37,28 +37,33 @@ jobs:
           commit: true
           branch_to_push: 'main'
 
-      - name: publish # 向 npm publish 代码 请遵循 npm 规范.
+      - name: Publish package to NPM
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
-      # 到这如果全部成功，那么我们就成功的将代码发布到了npm
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }} # NPM Token necessary to deploy packages on pipelines CI/CD
 
-      # 下面主要是创建 github 的release
-      # 需要手动修改 package.json 版本
-      # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的 package.json 数据
-      - name: Read package.json
-        uses: tyankatsu0105/read-package-version-actions@v1
-        id: package-version
+      # - name: publish # 向 npm publish 代码 请遵循 npm 规范.
+      #   run: npm publish
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}} # 该token是 npm的token 获取npm token请查看 步骤2 的创建 npm token 和 将npm token 放入github的 secrets下
+      # # 到这如果全部成功，那么我们就成功的将代码发布到了npm
 
-        # 关于创建 release 的更多参数，可以查看 actions/create-release@v1
-      - name: Create Release for Tag
-        id: release_tag
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_ACTION }} # 这块需要用到 github的token，因为需要对分之进行代码推送
-        with:
-          tag_name: v${{ steps.package-version.outputs.version }}
-          release_name: Release v${{ steps.package-version.outputs.version }}
-          prerelease: false # 是否为预发布版本
-          # body: |
-          #   请点击查看 [更新日志]().
+      # # 下面主要是创建 github 的release
+      # # 需要手动修改 package.json 版本
+      # # 使用 tyankatsu0105/read-package-version-actions@v1 工具来读取对应的 package.json 数据
+      # - name: Read package.json
+      #   uses: tyankatsu0105/read-package-version-actions@v1
+      #   id: package-version
+
+      #   # 关于创建 release 的更多参数，可以查看 actions/create-release@v1
+      # - name: Create Release for Tag
+      #   id: release_tag
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }} # 这块需要用到 github的token，因为需要对分之进行代码推送
+      #   with:
+      #     tag_name: v${{ steps.package-version.outputs.version }}
+      #     release_name: Release v${{ steps.package-version.outputs.version }}
+      #     prerelease: false # 是否为预发布版本
+      #     # body: |
+      #     #   请点击查看 [更新日志]().
