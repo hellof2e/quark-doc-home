@@ -30,8 +30,9 @@ jobs:
 
       - name: Update package.json
         run: |
-          echo ${{ github.event }}
-          node ./scripts/update-version.js ${{ github.event.release.tag_name }}
+          echo ${{ github.event.release.tag_name }}
+          node ./scripts/update-version.js 2.0.7
+      # node ./scripts/update-version.js ${{ github.event.release.tag_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
