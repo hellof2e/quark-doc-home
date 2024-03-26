@@ -32,7 +32,7 @@ jobs:
           patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
           # patch-wording:  'feat,release'     # Providing patch-wording will override commits
                                             # defaulting to a patch bump.
-          rc-wording:     'RELEASE,alpha'
+          # rc-wording:     'RELEASE,alpha'
 
       - run: npm install
       - run: npm run build
