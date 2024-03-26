@@ -1,8 +1,12 @@
 name: Release
 
 on:
+  # push 事件触发
   push:
     branches: [ main ]
+  # quark-doc-header 事件触发
+  repository_dispatch:
+      types: [my-event]
 
 jobs:
   publish-to-npm:
