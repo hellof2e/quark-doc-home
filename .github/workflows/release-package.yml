@@ -28,8 +28,8 @@ jobs:
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GIT_ACTION }}
 
-      # - run: npm install
-      # - run: npm run build
+      - run: npm install
+      - run: npm run build
 
       - name: Update package.json
         run: |
