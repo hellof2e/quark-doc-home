@@ -2,8 +2,6 @@ import { QuarkElement, state, customElement } from "quarkc"
 import style from "./index.less?inline"
 import langs from "./lang"
 import quarkLogo from "./images/quark-logo.png"
-import arrow2 from "./images/arrow2.png"
-import arrowLight from "./images/arrow-light.png"
 import iDownLight from "./images/i-down-light.png"
 import iDown from "./images/i-down.png"
 import "quark-doc-header"
@@ -179,16 +177,9 @@ export default class QuarkDocHome extends QuarkElement {
                 style="opacity: 1"
               >
                 <span>{ this.#ecosystemLangs.scrollDown }</span>
-                <span class="arrow">
-                  {
-                    this.darkMode ?
-                    <img
-                      src={arrow2}
-                      alt="arrow"
-                    /> :
-                    <img src={arrowLight} alt="arrow" />
-                  }
-                </span>
+                <div class="arrow">
+                  <span></span>
+                </div>
               </a>
           </section>
 
@@ -313,13 +304,11 @@ export default class QuarkDocHome extends QuarkElement {
           </section>
         </main>
 
-        <div class="footer-container">
-          <footer>
-            <div class="text-xs text-gray-400">
-              A project by <a href="javascript:;"> Quark Labs</a>
-            </div>
-          </footer>
-        </div>
+        <footer class="footer-container">
+          <div>
+            A project by Quark Labs @copyright 2024
+          </div>
+        </footer>
       </>
     );
   }

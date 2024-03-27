@@ -22,6 +22,13 @@
   --text-font-color: rgba(60, 60, 67, .92);
   --text-code-font-color: #476582;
 
+
+  --advantage-bg: conic-gradient(from -90deg at 110% 100%, #fff 0deg, #ebecf0 90deg, #ebecf0 1turn);
+  --we-believe-bg: conic-gradient(from -90deg at 110% 100%, #fff 0deg, #ebecf0 90deg, #ebecf0 1turn);
+  --what-we-do-bg: conic-gradient(from 90deg at -10% 100%, #bcc1cd 0deg, #bcc1cd 90deg, #fff 1turn);
+
+  --arrow-light-mode-icon: url('https://raw.githubusercontent.com/hellof2e/static/main/arrow-light-mode.png');
+
   color: var(--text-font-color);
   background-color: var(--main-bg);
   font-family: var(--font-family-base);
@@ -30,7 +37,7 @@
 
 html.dark {
   --link-font-color-dark: rgba(255, 255, 255, 0.87);
-  --main-bg: #1e1e20;
+  --main-bg: #23272f;
   --text-font-color: rgba(255, 255, 255, 0.87);
   --header-bg-light: #fff;
   --line-light: rgba(60, 60, 67, .12);
@@ -43,6 +50,17 @@ html.dark {
   --brand-color-light: #bcc0ff;
   --mute-light: #313136;
   --line-light: rgba(82, 82, 89, .32);
+
+
+
+  --advantage-bg: conic-gradient(from 90deg at -10% 100%, #2b303b 0deg, #2b303b 90deg, #16181d 1turn);
+  --we-believe-bg: conic-gradient(from -90deg at 110% 100%, #2b303b 0deg, #16181d 90deg, #16181d 1turn);
+  --what-we-do-bg: conic-gradient(from 90deg at -10% 100%, #2b303b 0deg, #2b303b 90deg, #16181d 1turn);
+
+  --scroll-down-dark-color: var(--link-font-color-dark);
+  --arrow-dark-mode-icon: url('https://raw.githubusercontent.com/hellof2e/static/main/arrow-dark-mode.png');
+  --footer-bg: conic-gradient(from 90deg at -10% 100%, #2b303b 0deg, #2b303b 90deg, #16181d 1turn);
+
   font-family: var(--font-family-base);
   color: var(--link-font-color-dark);
   background-color: var(--main-bg);

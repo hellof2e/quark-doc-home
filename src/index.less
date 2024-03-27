@@ -46,8 +46,8 @@ button {
   display: flex;
 }
 .home-text {
-  flex: 1;
   display: grid;
+  grid-template-rows: 175px 1fr 88px;
 }
 .home-logo {
   width: 392px;
@@ -127,11 +127,10 @@ button {
 }
 
 .scroll-down {
-  margin-bottom: 20px;
-  padding-bottom: 40px;
   transition: opacity .2s ease-in;
   position: relative;
   cursor: pointer;
+  color: var(--scroll-down-dark-color, var(--text-font-color));
 
   &:hover {
     text-decoration: underline;
@@ -142,9 +141,16 @@ button {
     font-size: 50px;
     animation: 1.5s infinite anim-arrow;
     position: absolute;
-    top: -50%;
     left: 50%;
-    width: 22px;
+
+    span {
+      display: flex;
+      width: 25px;
+      height: 30px;
+      background-image: var(--arrow-dark-mode-icon, var(--arrow-light-mode-icon));
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
   }
 }
 
@@ -169,6 +175,16 @@ button {
 .advantage {
   padding-top: 175px;
   padding-bottom: 175px;
+  border-top: 1px solid rgba(35, 39, 47, .1);
+}
+.advantage {
+  background-image: var(--advantage-bg);
+}
+.we-believe {
+  background-image: var(--we-believe-bg);
+}
+.what-we-do{
+  background-image: var(--what-we-do-bg);
 }
 .wrap {
   padding-left: 90px;
@@ -286,10 +302,12 @@ button {
 .footer-container {
   margin-left: auto;
   margin-right: auto;
-  footer {
+  div {
     display: flex;
     padding: 2.5rem 0;
     justify-content: center;
+    background: var(--footer-bg, #fff);
+    font-size: 12px;
   }
 }
 
