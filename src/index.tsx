@@ -66,7 +66,7 @@ export default class QuarkDocHome extends QuarkElement {
   }
 
   copyPrompt = () => {
-    const text = "npn install quarkd";
+    const text = "npm install quarkd";
     if (navigator.clipboard) {
       // clipboard api 复制
       navigator.clipboard.writeText(text);
