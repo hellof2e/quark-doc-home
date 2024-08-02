@@ -106,8 +106,11 @@ export default class QuarkDocHome extends QuarkElement {
                 </div>
                 <div>
                   <div class="home-logo">
-                    <img src={quarkLogo} alt="" />
+                    <div class="image-bg"></div>
+                    {/* <img src={quarkLogo} alt="" /> */}
+                    <div class="logo-bg"></div>
                   </div>
+
                   <h1 class="home-title">
                     { this.#ecosystemLangs.homeTitle }
                   </h1>
