@@ -15,20 +15,22 @@
       }
     </style>
 
-    
-    <link rel="stylesheet" href="./theme.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quark-static@latest/theme.css" />
+
+    <!-- 本地开发使用下面资源 -->
+    <link rel="stylesheet" href="../static/theme.css">
 
     <script type="module" src="./src/index.tsx"></script>
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPD45X3FFK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VPD45X3FFK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-VPD45X3FFK');
-</script>
+      gtag('config', 'G-VPD45X3FFK');
+    </script>
   </head>
   <body>
     <quark-doc-home></quark-doc-home>
